@@ -9,12 +9,14 @@ import OurWork from "./pages/OurWork";
 import WhatsAppButton from "./components/WhatsAppButton";
 import GetInvolved from "./pages/GetInvolved";
 import DonatePage from "./pages/DonatePage";
+import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 function App() {
   return (
     <Router>
       <>
       
         <WhatsAppButton />
+        <ScrollToTopOnRouteChange />
           <Routes>
           
             <Route path="/" element={<Home />} />
