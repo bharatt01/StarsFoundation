@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const slides = [
   {
     id: 1,
-    image: "/images/hero1.jpg",
+    image: "/images/hero1.webp",
     title: (
       <>
         Uplift Communities — Empower <span className="text-[#9ac531]">Change</span>
@@ -15,7 +15,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "/images/hero2.jpg",
+    image: "/images/hero2.webp",
     title: (
       <>
         Together We <span className="text-[#9ac531]">Make a Difference</span>
@@ -26,7 +26,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/images/hero3.jpg",
+    image: "/images/hero3.webp",
     title: (
       <>
         Be the <span className="text-[#9ac531]">Change</span> You Wish to See
