@@ -5,22 +5,22 @@ const steps = [
   {
     title: "Identify Needs",
     desc: "Community engagement to understand urgent problems.",
-    icon: "/icons/search.svg",
+    icon: "/images/find.jpg ",
   },
   {
     title: "Mobilize Support",
     desc: "Connect volunteers, donors, and partners for each mission.",
-    icon: "/icons/group.svg",
+    icon: "/images/gather.jpg",
   },
   {
     title: "Execute Project",
     desc: "Transparent, on-ground implementation and regular reporting.",
-    icon: "/icons/execute.svg",
+    icon: "/images/finish.jpg",
   },
   {
     title: "Measure Impact",
     desc: "Share results, gather feedback, and plan for scaling.",
-    icon: "/icons/impact.svg",
+    icon: "/images/share.jpg",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function HowWeWork() {
                 className={`flex items-start md:items-center gap-5 md:gap-8 ${i % 2 ? "md:col-start-2" : ""}`}
               >
                 <div className="shrink-0 w-14 h-14 bg-[#9ac531] text-[#0757a0] rounded-full flex items-center justify-center shadow-lg text-3xl font-bold">
-                  <img src={step.icon} alt="" className="w-7 h-7" />
+                  <img src={step.icon} alt="" className="w-12 h-12 rounded-full" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-[#0757a0]">{step.title}</h3>

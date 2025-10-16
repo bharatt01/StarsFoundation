@@ -12,7 +12,7 @@ export default function AboutUsPreview() {
         viewport={{ once: true }}
       >
         <img
-          src="/images/about-us-preview.jpg"
+          src="/images/about.jpg"
           alt="About StarFoundation"
           className="w-full h-full object-cover"
           loading="lazy"
@@ -34,7 +34,7 @@ export default function AboutUsPreview() {
           We are dedicated to transforming lives by empowering underserved communities. Through education, healthcare, and sustainable development, we build hope and opportunity every day.
         </p>
         <a
-          href="/about"
+          href="/about-us"
           className="inline-block bg-[#9ac531] text-[#0757a0] px-12 py-4 rounded-full font-bold shadow-lg hover:bg-[#86b22b] transition-colors"
         >
           View More
