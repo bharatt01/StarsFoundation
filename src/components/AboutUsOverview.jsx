@@ -4,7 +4,7 @@ export default function AboutUsOverview() {
       {/* Banner Image */}
       <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-3xl overflow-hidden shadow-2xl mb-12 sm:mb-16">
         <img
-          src="/images/about-us-banner.jpg"
+          src="/images/about-us.jpg"
           alt="Community support by Stars Foundation"
           className="object-cover w-full h-full"
           loading="lazy"

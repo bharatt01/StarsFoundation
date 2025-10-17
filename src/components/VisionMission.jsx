@@ -17,7 +17,7 @@ export default function VisionMission() {
           className="relative bg-white rounded-2xl shadow-2xl p-10 md:p-14 hover:shadow-3xl transition-shadow"
         >
           <img
-            src="/images/vision.jpg"
+            src="/images/our-vision.jpg"
             alt="Our Vision"
             className="w-full h-56 md:h-64 object-cover rounded-xl mb-8"
           />

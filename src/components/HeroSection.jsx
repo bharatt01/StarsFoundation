@@ -1,10 +1,37 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
+// Lazy progressive image loader
+function ProgressiveImage({ src, lowResSrc, alt }) {
+  const [imageSrc, setImageSrc] = useState(lowResSrc);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const fullImage = new Image();
+    fullImage.src = src;
+    fullImage.onload = () => {
+      setImageSrc(src);
+      setLoaded(true);
+    };
+  }, [src]);
+
+  return (
+    <img
+      src={imageSrc}
+      alt={alt}
+      loading="lazy"
+      className={`w-full h-full object-cover transition-all duration-700 ease-in-out ${
+        loaded ? "blur-0 scale-100" : "blur-lg scale-105"
+      }`}
+    />
+  );
+}
 
 const slides = [
   {
     id: 1,
-    image: "/images/hero1.webp",
+    image: "/images/hero-section1.webp",
+    lowRes: "/images/hero-section1-small.webp", // create smaller preview image
     title: (
       <>
         Uplift Communities — Empower <span className="text-[#9ac531]">Change</span>
@@ -15,7 +42,8 @@ const slides = [
   },
   {
     id: 2,
-    image: "/images/hero2.webp",
+    image: "/images/hero-section2.webp",
+    lowRes: "/images/hero-section2-small.webp",
     title: (
       <>
         Together We <span className="text-[#9ac531]">Make a Difference</span>
@@ -26,7 +54,8 @@ const slides = [
   },
   {
     id: 3,
-    image: "/images/hero3.webp",
+    image: "/images/hero-section3.webp",
+    lowRes: "/images/hero-section3-small.webp",
     title: (
       <>
         Be the <span className="text-[#9ac531]">Change</span> You Wish to See
@@ -40,36 +69,40 @@ const slides = [
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
 
+  // Auto-slide every 5s
   useEffect(() => {
-    const interval = setInterval(
-      () => setCurrent((prev) => (prev + 1) % slides.length),
-      5000 // Change every 5 seconds
-    );
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="relative w-full h-[85vh] md:h-[90vh] overflow-hidden">
-      {/* Background Image Slider */}
+      {/* Image Slider */}
       <div className="absolute inset-0">
         <AnimatePresence mode="wait">
-          <motion.img
+          <motion.div
             key={slides[current].id}
-            src={slides[current].image}
-            alt="Hero Background"
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 1 }}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0"
+          >
+            <ProgressiveImage
+              src={slides[current].image}
+              lowResSrc={slides[current].lowRes}
+              alt="Hero Background"
+            />
+          </motion.div>
         </AnimatePresence>
 
-        {/* Dark overlay for readability */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      {/* Content Overlay */}
+      {/* Content */}
       <div className="relative z-10 flex flex-col justify-center h-full px-6 md:px-24 text-white max-w-3xl">
         <AnimatePresence mode="wait">
           <motion.div
@@ -103,20 +136,20 @@ export default function HeroSection() {
         </AnimatePresence>
       </div>
 
-      {/* Slide indicators */}
+      {/* Indicators */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              i === current ? "bg-[#9ac531]" : "bg-white/60"
+              i === current ? "bg-[#9ac531]" : "bg-white/50"
             }`}
           />
         ))}
       </div>
 
-      {/* Optional fade edges for modern look */}
+      {/* Gradient for modern finish */}
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
     </section>
   );

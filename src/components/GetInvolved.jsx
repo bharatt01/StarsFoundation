@@ -12,7 +12,7 @@ export default function GetInvolved() {
         className="w-full flex justify-center"
       >
         <img
-          src="/images/volunteer-hero.jpg"
+          src="/images/volunteers.jpg"
           alt="Get involved: Volunteer and Internship"
           className="w-full max-w-md md:max-w-lg h-96 object-cover rounded-2xl shadow-xl border-4 border-[#9ac531]"
           loading="lazy"

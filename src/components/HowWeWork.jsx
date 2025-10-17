@@ -5,22 +5,22 @@ const steps = [
   {
     title: "Identify Needs",
     desc: "Community engagement to understand urgent problems.",
-    icon: "/images/find.jpg ",
+    icon: "/images/find.webp",
   },
   {
     title: "Mobilize Support",
     desc: "Connect volunteers, donors, and partners for each mission.",
-    icon: "/images/gather.jpg",
+    icon: "/images/gather.webp",
   },
   {
     title: "Execute Project",
     desc: "Transparent, on-ground implementation and regular reporting.",
-    icon: "/images/finish.jpg",
+    icon: "/images/finish.webp",
   },
   {
     title: "Measure Impact",
     desc: "Share results, gather feedback, and plan for scaling.",
-    icon: "/images/share.jpg",
+    icon: "/images/share.webp",
   },
 ];
 
