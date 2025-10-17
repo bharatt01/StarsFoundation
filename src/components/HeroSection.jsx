@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
-// Lazy progressive image loader
+// Progressive Image component (kept same)
 function ProgressiveImage({ src, lowResSrc, alt }) {
   const [imageSrc, setImageSrc] = useState(lowResSrc);
   const [loaded, setLoaded] = useState(false);
@@ -31,7 +31,7 @@ const slides = [
   {
     id: 1,
     image: "/images/hero-section1.webp",
-    lowRes: "/images/hero-section1-small.webp", // create smaller preview image
+    lowRes: "/images/hero-section1-small.webp",
     title: (
       <>
         Uplift Communities — Empower <span className="text-[#9ac531]">Change</span>
@@ -68,14 +68,43 @@ const slides = [
 
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
+  const [preloaded, setPreloaded] = useState(false);
 
-  // Auto-slide every 5s
+  // ✅ Preload all images once on mount
   useEffect(() => {
+    const preload = async () => {
+      const promises = slides.map(
+        (s) =>
+          new Promise((resolve) => {
+            const img = new Image();
+            img.src = s.image;
+            img.onload = resolve;
+            img.onerror = resolve;
+          })
+      );
+      await Promise.all(promises);
+      setPreloaded(true);
+    };
+    preload();
+  }, []);
+
+  // ✅ Only start slider after preloading
+  useEffect(() => {
+    if (!preloaded) return;
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [preloaded]);
+
+  if (!preloaded) {
+    // Show loading state quickly (optional)
+    return (
+      <section className="relative w-full h-[85vh] md:h-[90vh] flex items-center justify-center bg-black text-white">
+        <p className="animate-pulse text-lg">Loading...</p>
+      </section>
+    );
+  }
 
   return (
     <section className="relative w-full h-[85vh] md:h-[90vh] overflow-hidden">
@@ -98,7 +127,6 @@ export default function HeroSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
@@ -149,7 +177,6 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* Gradient for modern finish */}
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
     </section>
   );
