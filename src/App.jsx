@@ -10,6 +10,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import GetInvolved from "./pages/GetInvolved";
 import DonatePage from "./pages/DonatePage";
 import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
+import Stories from "./pages/Stories";
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
             <Route path="/our-work" element={<OurWork />} />
             <Route path="/get-involved" element={<GetInvolved />} />
             <Route path="/donate" element={<DonatePage />} />
+            <Route path="/stories" element={<Stories />} />
           </Routes>
       </>
     </Router>

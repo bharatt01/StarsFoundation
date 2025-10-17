@@ -5,19 +5,19 @@ const initiatives = [
     title: "Clean Water Access",
     description:
       "Providing clean, safe drinking water to remote villages, improving health and sanitation.",
-    imageSrc: "/images/initiatives/water.jpg",
+    imageSrc: "/images/drink-water.jpg",
   },
   {
     title: "Girls Education",
     description:
       "Empowering girls with education through scholarships and school support programs.",
-    imageSrc: "/images/initiatives/education.jpg",
+    imageSrc: "/images/girls-education.jpg",
   },
   {
     title: "Health Camps",
     description:
       "Organizing regular health checkups and awareness camps in underserved communities.",
-    imageSrc: "/images/initiatives/health.jpg",
+    imageSrc: "/images/health-camps.jpg",
   },
 ];
 

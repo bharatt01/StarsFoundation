@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 export default function AboutUsPreview() {
   return (
     <section className="max-w-7xl mx-auto px-6 md:px-24 py-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-white rounded-3xl shadow-lg overflow-hidden">
@@ -33,12 +33,12 @@ export default function AboutUsPreview() {
         <p className="text-gray-700 text-lg mb-8 max-w-xl leading-relaxed font-medium">
           We are dedicated to transforming lives by empowering underserved communities. Through education, healthcare, and sustainable development, we build hope and opportunity every day.
         </p>
-        <a
-          href="/about-us"
+        <Link to="/about-us"
           className="inline-block bg-[#9ac531] text-[#0757a0] px-12 py-4 rounded-full font-bold shadow-lg hover:bg-[#86b22b] transition-colors"
-        >
+       >
           View More
-        </a>
+        </Link>
+        
       </motion.div>
     </section>
   );

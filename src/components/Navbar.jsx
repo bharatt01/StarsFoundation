@@ -57,7 +57,7 @@ export default function Navbar() {
     { name: "About", path: "/about-us" },
     { name: "Our Work", path: "/our-work" },
     { name: "Get Involved", path: "/get-involved" },
-    { name: "Join Us", path: "/join" },
+    { name: "Stories", path: "/stories" },
     { name: "Donate", path: "/donate", cta: true },
   ];
 
