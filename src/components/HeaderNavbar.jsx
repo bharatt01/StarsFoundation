@@ -13,7 +13,8 @@
       { name: "About", path: "/about-us" },
       { name: "Projects", path: "/projects" },
       { name: "Get Involved", path: "/get-involved" },
-      { name: "Stories", path: "/stories" },
+      // { name: "Media", path: "/media" },
+      { name: "Stories & Media", path: "/stories" },
       { name: "Donate", path: "/donate", cta: true },
     ];
 

@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import StoriesHero from '../components/StoriesHero'
 import StoriesGrid from '../components/StoriesGrid'
 import HeaderTop from '../components/HeaderTop'
+import MediaGallery from '../components/MediaGallery'
 
 export default function Stories() {
   return (
@@ -14,6 +15,7 @@ export default function Stories() {
       <StoriesHero />
       <StoriesGrid />
       <VolunteerSpotlight />
+      <MediaGallery />
       <Footer />
     </>
   )

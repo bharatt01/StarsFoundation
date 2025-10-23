@@ -23,11 +23,11 @@ export default function Footer() {
           <ul className="space-y-3 text-base font-semibold">
             {[
               {label: 'Home', href:'/'},
-              {label: 'About', href:'#about'},
-              {label: 'Projects', href:'#projects'},
-              {label: 'Stories', href:'#stories'},
-              {label: 'Join Us', href:'#join'},
-              {label: 'Donate', href:'#donate'},
+              {label: 'About', href:'about-us'},
+              {label: 'Projects', href:'projects'},
+              {label: 'Stories', href:'stories'},
+              {label: 'Join Us', href:'join'},
+              {label: 'Donate', href:'donate'},
             ].map(link => (
               <li key={link.label}>
                 <a href={link.href} className="hover:text-[#9ac531] transition">{link.label}</a>

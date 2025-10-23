@@ -11,6 +11,7 @@ import GetInvolved from "./pages/GetInvolved";
 import DonatePage from "./pages/DonatePage";
 import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 import Stories from "./pages/Stories";
+import Media from "./pages/Media";
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
             <Route path="/projects" element={<OurWork />} />
             <Route path="/get-involved" element={<GetInvolved />} />
             <Route path="/donate" element={<DonatePage />} />
+            <Route path="/media" element={<Media />} />
             <Route path="/stories" element={<Stories />} />
           </Routes>
       </>
