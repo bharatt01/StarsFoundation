@@ -1,16 +1,18 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import HeaderNavbar from '../components/HeaderNavbar'
 import OurWorkOverview from '../components/OurWorkOverview'
 import FeaturedInitiatives from '../components/FeaturedInitiatives'
 import ImpactHighlights from '../components/ImpactHighlights'
 import WorkGallery from '../components/WorkGallery'
 import Footer from '../components/Footer'
+import ProjectsOverview from '../components/ProjectsOverview'
 
 function OurWork() {
   return (
     <>
-    <Navbar />
-    <OurWorkOverview />
+    <HeaderNavbar />
+    <ProjectsOverview />
+    {/* <OurWorkOverview /> */}
     <FeaturedInitiatives />
     <ImpactHighlights />
     <WorkGallery />

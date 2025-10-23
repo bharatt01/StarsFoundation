@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import HeaderNavbar from '../components/HeaderNavbar'
 import HeroSection from '../components/HeroSection'
 import ProjectsSection from '../components/ProjectsSection'
 import HowWeWork from '../components/HowWeWork'
@@ -10,15 +10,24 @@ import VolunteerCTA from '../components/VolunteerCTA'
 import Footer from '../components/Footer'
 import WhatsAppButton from '../components/WhatsAppButton'
 import AboutUsPreview from '../components/AboutUsPreview'
+import StarFoundationHero from '../components/StarsFoundationHero'
+import SkillTrainingProjects from '../components/SkillTrainingProjects'
+import ImpactCounters from '../components/ImpactCounters'
+import LatestCauses from '../components/LatestCauses'
+// import HeaderTop from '../components/HeaderTop'
 function Home() {
   return (
     <>
-    <Navbar />
-    <HeroSection    />  
-    <ProjectsSection />
+    {/* <HeaderTop /> */}
+    <HeaderNavbar />
+    <HeroSection />
+    <StarFoundationHero />
     <HowWeWork />
     <ImpactGallery />
+    <SkillTrainingProjects />
     <StorySpotlight />
+    <ImpactCounters />
+    <LatestCauses />
     <AboutUsPreview />
     <VolunteerCTA />
     <Footer />

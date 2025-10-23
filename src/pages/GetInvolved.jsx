@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import HeaderNavbar from '../components/HeaderNavbar'
 import GetInvolvedHero from '../components/GetInvolvedHero'
 import VolunteerSection from '../components/VolunteerSection'
 import InternshipSection from '../components/InternshipSection'
@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 function GetInvolved() {
   return (
     <>
-    <Navbar />
+    <HeaderNavbar />
     <GetInvolvedHero />
 <VolunteerSection />
 <InternshipSection  />

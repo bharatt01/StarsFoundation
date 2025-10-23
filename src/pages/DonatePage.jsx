@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
+import HeaderNavbar from "../components/HeaderNavbar";
 
 export default function DonatePage() {
-  const accountName = "Stars Foundation";
+  const accountName = "Gufran";
   const accountNumber = "1234567890";
   const bankName = "National Bank of India";
-  const qrCodeImage = "/images/donate-qr.png"; // Replace this with your actual QR code image path
+  const qrCodeImage = "/images/donateqr.jpg"; // Replace this with your actual QR code image path
 
   return (
     <>
-    <Navbar />
+    <HeaderNavbar />
     <section className="max-w-4xl mx-auto px-6 md:px-12 py-24 bg-white rounded-3xl shadow-xl text-center">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
