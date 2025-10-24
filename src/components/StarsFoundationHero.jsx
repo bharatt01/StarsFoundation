@@ -1,11 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Heart, Leaf, HandHeart } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
 
-const sectionImg =
-  "/images/starfoundationhero.jpg";
+const sectionImg = "/images/starfoundationhero.jpg";
 
 export default function StarFoundationHero() {
+  const navigate = useNavigate(); // ✅ Initialize navigate
+
   return (
     <section className="relative overflow-hidden font-['Poppins'] bg-gradient-to-br from-[#f8fff2] via-white to-[#eaf4ff] py-20 md:py-28">
       {/* Floating Animated Icons */}
@@ -49,7 +51,7 @@ export default function StarFoundationHero() {
         >
           <h1 className="text-3xl md:text-5xl font-bold leading-snug text-[#0757a0] mb-5">
             Best NGO for CSR in India:{" "}
-            <span className="text-[#9ac531]">Nitya Foundation</span>
+            <span className="text-[#9ac531]">Stars Foundation</span>
           </h1>
 
           <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
@@ -61,18 +63,19 @@ export default function StarFoundationHero() {
             for poor & Street Children, Health programs, Environment protection,
             Consumer awareness, Elderly care, Rural development programs, Slum
             development, Donate for Livelihood, etc. Donate to India’s best NGO
-            and support development. At Nitya, we believe that each and every
+            and support development. At Stars Foundation, we believe that each and every
             person is entitled to a worthy, meaningful, and dignified life just
             as mentioned under Article 21 (Right to life and personal liberty)
             of the Indian constitution.
           </p>
 
-          <a
-            href="/donate"
+          {/* ✅ Navigate instead of href */}
+          <button
+            onClick={() => navigate("/donate")}
             className="inline-block bg-[#0757a0] text-white font-semibold text-base md:text-lg px-8 py-3 rounded-full shadow-lg hover:bg-[#064a8a] transition duration-200"
           >
             Support Our Mission
-          </a>
+          </button>
         </motion.div>
 
         {/* Right Image */}

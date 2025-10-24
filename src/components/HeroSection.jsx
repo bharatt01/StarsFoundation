@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Progressive Image component (kept same)
 function ProgressiveImage({ src, lowResSrc, alt }) {
@@ -69,8 +70,9 @@ const slides = [
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
   const [preloaded, setPreloaded] = useState(false);
+  const navigate = useNavigate(); // ✅ React Router navigation
 
-  // ✅ Preload all images once on mount
+  // Preload images
   useEffect(() => {
     const preload = async () => {
       const promises = slides.map(
@@ -88,7 +90,7 @@ export default function HeroSection() {
     preload();
   }, []);
 
-  // ✅ Only start slider after preloading
+  // Slider interval
   useEffect(() => {
     if (!preloaded) return;
     const interval = setInterval(() => {
@@ -98,7 +100,6 @@ export default function HeroSection() {
   }, [preloaded]);
 
   if (!preloaded) {
-    // Show loading state quickly (optional)
     return (
       <section className="relative w-full h-[85vh] md:h-[90vh] flex items-center justify-center bg-black text-white">
         <p className="animate-pulse text-lg">Loading...</p>
@@ -107,9 +108,8 @@ export default function HeroSection() {
   }
 
   return (
- <section className="relative w-full h-[70vh] sm:h-[75vh] md:h-[90vh] overflow-hidden">
-
-    {/* Image Slider */}
+    <section className="relative w-full h-[70vh] sm:h-[75vh] md:h-[90vh] overflow-hidden">
+      {/* Image Slider */}
       <div className="absolute inset-0">
         <AnimatePresence mode="wait">
           <motion.div
@@ -127,7 +127,6 @@ export default function HeroSection() {
             />
           </motion.div>
         </AnimatePresence>
-
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
@@ -148,18 +147,18 @@ export default function HeroSection() {
               {slides[current].description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <a
-                href="contact"
+              <button
+                onClick={() => navigate("/contact")} // ✅ navigate instead of href
                 className="bg-[#9ac531] text-[#0757a0] px-6 sm:px-8 py-3 rounded font-bold shadow-lg hover:bg-[#86b22b] transition-colors text-center"
               >
                 Join Us
-              </a>
-              <a
-                href="donate"
+              </button>
+              <button
+                onClick={() => navigate("/donate")} // ✅ navigate instead of href
                 className="bg-[#0757a0] text-white px-6 sm:px-8 py-3 rounded font-bold shadow-lg hover:bg-[#054b83] transition-colors text-center"
               >
                 Donate Now
-              </a>
+              </button>
             </div>
           </motion.div>
         </AnimatePresence>

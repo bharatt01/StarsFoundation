@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 
 export default function GetInvolvedHero() {
+  const scrollToVolunteer = () => {
+    const section = document.getElementById("volunteer");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative bg-gradient-to-br from-[#a3cb38] to-[#75a732] py-28 px-6 md:px-24 rounded-b-3xl shadow-2xl text-white text-center max-w-7xl mx-auto overflow-hidden">
       {/* Decorative shapes */}
@@ -25,14 +32,15 @@ export default function GetInvolvedHero() {
         Volunteer, intern, donate, or attend our events—empower change with Stars Foundation and create a brighter future.
       </motion.p>
 
-      <motion.a
-        href="#volunteer"
+      {/* ✅ Updated from <motion.a> to clickable motion.button */}
+      <motion.button
+        onClick={scrollToVolunteer}
         className="inline-block px-16 py-5 text-[#0757a0] font-bold bg-white rounded-full shadow-lg hover:bg-gray-100 transition transform hover:scale-105"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
         Explore Opportunities
-      </motion.a>
+      </motion.button>
     </section>
   );
 }

@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
 
-const skillImage =
-  "/images/skill-training.jpeg"; 
+const skillImage = "/images/skill-training.jpeg";
 
 export default function SkillTrainingProjects() {
+  const navigate = useNavigate(); // ✅ Initialize navigate
+
   return (
     <section className="relative bg-gradient-to-br from-[#f3faea] via-white to-[#e8f4ff] py-20 px-6 md:px-24 max-w-7xl mx-auto overflow-hidden rounded-3xl">
       {/* Decorative Blobs */}
@@ -38,12 +40,14 @@ export default function SkillTrainingProjects() {
           <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-7">
             According to recent data, just 10% of recent graduates are employable, and the other 90% do not possess the necessary abilities to qualify for employment by a firm. The GDP of India is increasing at a healthy rate of about 6-8%, but employment growth is not keeping up.
           </p>
-          <a
-            href="donate"
+
+          {/* ✅ Navigate instead of href */}
+          <button
+            onClick={() => navigate("/donate")}
             className="inline-block bg-[#9ac531] text-[#0757a0] font-bold text-lg px-8 py-3 rounded-full shadow-md hover:bg-[#86b22b] transition duration-200"
           >
             Support Skill Training
-          </a>
+          </button>
         </div>
       </motion.div>
     </section>

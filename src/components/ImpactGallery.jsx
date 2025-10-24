@@ -59,7 +59,7 @@ export default function ImpactGallery() {
     <section className="py-16 px-6 md:px-24 bg-white">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-4xl font-bold text-[#0757a0] mb-4">
-          Our{" "}
+          {/* " "} */}
           <span className="text-[#9ac531] uppercase">
             We Can All Together Make India Happier
           </span>

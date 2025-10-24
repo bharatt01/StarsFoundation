@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import { useNavigate } from "react-router-dom"; // ✅ Import navigate
 
 const requirements = [
   "Must be 18 years or older",
@@ -10,6 +11,8 @@ const requirements = [
 ];
 
 export default function VolunteerSection() {
+  const navigate = useNavigate(); // ✅ Initialize navigation
+
   return (
     <section
       id="volunteer"
@@ -54,15 +57,16 @@ export default function VolunteerSection() {
           </motion.li>
         ))}
       </ul>
-      
-      <motion.a
-        href="/volunteer/application"
+
+      {/* ✅ Replaced <a> with a <button> and navigate() */}
+      <motion.button
+        onClick={() => navigate("/volunteer/application")}
         className="block max-w-max mx-auto bg-gradient-to-r from-[#9ac531] to-[#75a732] text-white font-bold rounded-full px-16 py-5 shadow-lg hover:from-[#86b22b] hover:to-[#64932f] transition-all transform hover:scale-105"
         whileHover={{ scale: 1.07 }}
         whileTap={{ scale: 0.95 }}
       >
         Apply to Volunteer
-      </motion.a>
+      </motion.button>
     </section>
   );
 }

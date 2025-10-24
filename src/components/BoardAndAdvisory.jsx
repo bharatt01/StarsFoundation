@@ -2,9 +2,21 @@ import { motion } from "framer-motion";
 
 export default function BoardAndAdvisory() {
   const boardMembers = [
-    { name: "Mr. Gufran", role: "Chairman / Author / Settler" },
-    { name: "Mr. Rafat Khan", role: "General Secretary" },
-    { name: "Mrs. Hira Khan", role: "Treasurer" },
+    { 
+      name: "Mr. Gufran", 
+      role: "Chairman / Author / Settler",
+      message: "Dedicated to building a future where every individual has the opportunity to grow and succeed."
+    },
+    { 
+      name: "Mr. Rafat Khan", 
+      role: "General Secretary",
+      message: "Committed to ensuring transparency, progress, and community empowerment."
+    },
+    { 
+      name: "Mrs. Hira Khan", 
+      role: "Treasurer",
+      message: "Believes in strength through unity and responsible development."
+    },
   ];
 
   const advisoryCommittee = [
@@ -36,7 +48,7 @@ export default function BoardAndAdvisory() {
         </h2>
 
         <div className="grid md:grid-cols-3 gap-10">
-          {boardMembers.map(({ name, role }, idx) => (
+          {boardMembers.map(({ name, role, message }, idx) => (
             <motion.div
               key={name}
               initial={{ opacity: 0, y: 20 }}
@@ -52,6 +64,11 @@ export default function BoardAndAdvisory() {
               />
               <h3 className="text-xl font-bold text-[#0757a0]">{name}</h3>
               <p className="text-[#666] font-medium">{role}</p>
+
+              {/* Added message */}
+              <p className="text-[#555] mt-4 text-sm italic leading-relaxed">
+                "{message}"
+              </p>
             </motion.div>
           ))}
         </div>

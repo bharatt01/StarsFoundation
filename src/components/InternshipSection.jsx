@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const benefits = [
   "Hands-on project experience",
@@ -9,6 +10,8 @@ const benefits = [
 ];
 
 export default function InternshipSection() {
+  const navigate = useNavigate();
+
   return (
     <section
       id="internship"
@@ -67,14 +70,15 @@ export default function InternshipSection() {
         ))}
       </ul>
 
-      <motion.a
-        href="/internship/application"
+      {/* ✅ Updated Button */}
+      <motion.button
+        onClick={() => navigate("/internship/application")}
         className="inline-block bg-[#0757a0] text-white font-bold rounded-full px-16 py-5 shadow-lg hover:bg-[#05467f] transition transform hover:scale-105"
         whileHover={{ scale: 1.07 }}
         whileTap={{ scale: 0.95 }}
       >
         Apply for Internship
-      </motion.a>
+      </motion.button>
     </section>
   );
 }

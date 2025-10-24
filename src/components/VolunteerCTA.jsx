@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
 
 export default function VolunteerCTA() {
+  const navigate = useNavigate(); // ✅ Initialize navigate
+
   return (
     <section className="relative bg-gradient-to-r from-[#9ac531] to-[#6ea816] rounded-3xl max-w-7xl mx-auto my-24 overflow-hidden px-6 md:px-20 py-20 shadow-2xl text-white">
       {/* Overlay gradient layer for subtle depth */}
@@ -24,12 +27,14 @@ export default function VolunteerCTA() {
           <p className="text-lg md:text-xl max-w-lg leading-relaxed drop-shadow-md mb-10">
             Join our community of heroes dedicated to empowering underserved neighborhoods with compassion and real impact.
           </p>
-          <a
-            href="join/volunteer"
+
+          {/* ✅ Navigate instead of href */}
+          <button
+            onClick={() => navigate("/get-involved")}
             className="inline-block bg-white text-[#6ea816] font-bold px-14 py-4 rounded-full uppercase tracking-wider shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300"
           >
             Join Now
-          </a>
+          </button>
         </div>
 
         {/* Right: Emotional image */}

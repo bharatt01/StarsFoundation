@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 const stats = [
-  { label: "Villages Reached", value: 45, displayValue: "45+" },
-  { label: "Children Educated", value: 3000, displayValue: "3000+" },
-  { label: "Health Camps", value: 85, displayValue: "85+" },
-  { label: "Volunteers", value: 200, displayValue: "200+" },
+  { label: "Villages Reached", value: 5, displayValue: "5+" },
+  { label: "Children Educated", value: 40, displayValue: "40+" },
+  { label: "Health Camps", value: 5, displayValue: "5+" },
+  { label: "Volunteers", value: 15, displayValue: "15+" },
 ];
 
 // Hook for animated count-up

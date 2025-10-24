@@ -5,10 +5,10 @@ import { useInView } from "react-intersection-observer";
 
 // Stats with icons
 const stats = [
-  { label: "Volunteers", value: 1250, icon: FaUsers },
-  { label: "Donors", value: 540, icon: FaHandHoldingHeart },
-  { label: "Members", value: 320, icon: FaUserFriends },
-  { label: "Visitors", value: 10500, icon: FaEye },
+  { label: "Volunteers", value: 15, icon: FaUsers },
+  { label: "Donors", value: 5, icon: FaHandHoldingHeart },
+  { label: "Members", value: 20, icon: FaUserFriends },
+  { label: "Visitors", value: 1250, icon: FaEye },
 ];
 
 // Animated count component

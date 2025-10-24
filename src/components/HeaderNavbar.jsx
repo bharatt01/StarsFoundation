@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { SocialIcon } from "react-social-icons";
 
 export default function HeaderNavbar() {
@@ -24,11 +24,10 @@ export default function HeaderNavbar() {
   }, [location.pathname]);
 
   return (
-    <header className="top-0 bg-white shadow-md z-50">
-      {/* ================= TOP HEADER (DESKTOP + MOBILE) ================= */}
+    <header className="sticky top-0 z-50">
+      {/* ================= TOP HEADER ================= */}
       <div className="bg-[#054b87] text-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 flex flex-col md:flex-row items-center justify-between gap-2">
-
           {/* ===== Mobile Top: Call + Email + Icons ===== */}
           <div className="flex w-full items-center justify-between md:hidden">
             <div className="flex gap-2">
@@ -54,7 +53,7 @@ export default function HeaderNavbar() {
             </div>
           </div>
 
-          {/* ===== Desktop Top: Logo + Name + Contact + Icons ===== */}
+          {/* ===== Desktop Top ===== */}
           <div className="hidden md:flex items-center justify-between w-full">
             <div className="flex items-center gap-3">
               <img src="/images/logo.png" alt="Stars Foundation Logo" className="w-20 h-20 object-contain" />
@@ -63,16 +62,10 @@ export default function HeaderNavbar() {
 
             <div className="flex items-center gap-6 text-sm font-medium">
               <p>
-                📞{" "}
-                <a href="tel:+917678414989" className="underline hover:text-[#9ac531]">
-                  +91 7678414989
-                </a>
+                📞 <a href="tel:+917678414989" className="underline hover:text-[#9ac531]">+91 7678414989</a>
               </p>
               <p>
-                ✉️{" "}
-                <a href="mailto:info@starfoundation.org" className="underline hover:text-[#9ac531]">
-                  info@starfoundation.org
-                </a>
+                ✉️ <a href="mailto:starsfoundation2018@gmail.com" className="underline hover:text-[#9ac531]">starsfoundation2018@gmail.com</a>
               </p>
               <div className="flex items-center gap-3">
                 <SocialIcon url="https://www.instagram.com/starsfoundation2018/" bgColor="transparent" fgColor="#ffffff" style={{ height: 30, width: 30 }} />
@@ -86,7 +79,7 @@ export default function HeaderNavbar() {
         </div>
       </div>
 
-      {/* ================= LOGO + MENU (MOBILE ONLY) ================= */}
+      {/* ================= MOBILE LOGO + HAMBURGER ================= */}
       <div className="md:hidden bg-white px-4 py-2 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-2">
           <img src="/images/logo.png" alt="Stars Foundation Logo" className="w-12 h-12 object-contain" />
@@ -106,42 +99,42 @@ export default function HeaderNavbar() {
         </button>
       </div>
 
-      {/* ================= NAVBAR ================= */}
-      <nav className="max-w-7xl mx-auto flex items-center justify-center px-6 py-3 relative bg-white">
-        {/* Desktop Links */}
-        <div className="hidden md:flex gap-10 items-center">
-          {links.map((link, idx) => (
-            <NavLink
-              key={link.name}
-              to={link.path}
-              className={({ isActive }) =>
-                `relative px-4 py-2 font-semibold transition-colors duration-300 ${
-                  link.cta
-                    ? "bg-[#9ac531] text-[#0757a0] rounded-md shadow hover:bg-[#86b22b]"
-                    : isActive
-                    ? "text-[#9ac531]"
-                    : "text-[#0757a0] hover:text-[#9ac531]"
-                }`
-              }
-            >
-              {link.name}
-              {active === idx && !link.cta && (
-                <motion.span
-                  layoutId="navbar-active"
-                  className="absolute left-0 right-0 bottom-0 h-1 bg-[#9ac531] rounded-full"
-                  transition={{ type: "spring", stiffness: 600, damping: 30 }}
-                />
-              )}
-            </NavLink>
-          ))}
-        </div>
+      {/* ================= DESKTOP NAV LINKS ================= */}
+      <nav className="hidden md:flex max-w-7xl mx-auto px-6 py-3 items-center justify-center bg-white">
+        {links.map((link, idx) => (
+          <NavLink
+            key={link.name}
+            to={link.path}
+            className={({ isActive }) =>
+              `relative px-4 py-2 font-semibold transition-colors duration-300 ${
+                link.cta
+                  ? "bg-[#9ac531] text-[#0757a0] rounded-md shadow hover:bg-[#86b22b]"
+                  : isActive
+                  ? "text-[#9ac531]"
+                  : "text-[#0757a0] hover:text-[#9ac531]"
+              }`
+            }
+          >
+            {link.name}
+            {active === idx && !link.cta && (
+              <motion.span
+                layoutId="navbar-active"
+                className="absolute left-0 right-0 bottom-0 h-1 bg-[#9ac531] rounded-full"
+                transition={{ type: "spring", stiffness: 600, damping: 30 }}
+              />
+            )}
+          </NavLink>
+        ))}
+      </nav>
 
-        {/* Mobile Dropdown */}
+      {/* ================= MOBILE NAV DROPDOWN ================= */}
+      <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="absolute top-full right-4 mt-2 w-56 bg-white rounded-md shadow-lg flex flex-col py-4 border border-gray-100"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden overflow-hidden bg-white border-b border-gray-100"
           >
             {links.map((link) => (
               <NavLink
@@ -149,9 +142,9 @@ export default function HeaderNavbar() {
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
-                  `px-6 py-3 font-semibold ${
+                  `block px-6 py-3 font-semibold ${
                     link.cta
-                      ? "bg-[#9ac531] text-[#0757a0] rounded-md mx-2"
+                      ? "bg-[#9ac531] text-[#0757a0] rounded-md mx-2 my-1"
                       : isActive
                       ? "text-[#9ac531]"
                       : "text-[#0757a0] hover:bg-[#9ac531]/10"
@@ -163,7 +156,7 @@ export default function HeaderNavbar() {
             ))}
           </motion.div>
         )}
-      </nav>
+      </AnimatePresence>
     </header>
   );
 }

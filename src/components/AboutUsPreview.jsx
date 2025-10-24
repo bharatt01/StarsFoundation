@@ -28,7 +28,7 @@ export default function AboutUsPreview() {
         className="text-[#0757a0]"
       >
         <h2 className="text-5xl font-extrabold mb-6 leading-tight">
-          About <span className="text-[#9ac531]">StarFoundation</span>
+          About <span className="text-[#9ac531]">StarsFoundation</span>
         </h2>
         <p className="text-gray-700 text-lg mb-8 max-w-xl leading-relaxed font-medium">
           We are dedicated to transforming lives by empowering underserved communities. Through education, healthcare, and sustainable development, we build hope and opportunity every day.
