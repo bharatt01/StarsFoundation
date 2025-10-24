@@ -3,33 +3,49 @@ name: 🚀 Deploy StarsFoundation to Hostinger
 on:
   push:
     branches:
-      - master  # deploys automatically on push to main branch
+      - master  # deploys automatically on push to master branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 2️⃣ Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # 4️⃣ Build project
       - name: Build project
         run: npm run build
 
+      # 5️⃣ Verify build folder
+      - name: Verify dist folder
+        run: |
+          if [ -d "./dist" ]; then
+            echo "dist folder exists ✅"
+          else
+            echo "dist folder missing ❌"
+            exit 1
+          fi
+
+      # 6️⃣ Deploy via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist    # Vite output folder
+          local-dir: ./dist/        # ✅ trailing slash
           server-dir: ${{ secrets.FTP_DIR }}
+          delete: true              # ✅ deletes old files on server before upload
           exclude: .gitignore
