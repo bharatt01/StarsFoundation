@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const skillImage =
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=700&q=80"; 
+  "/images/skill-training.jpeg"; 
 
 export default function SkillTrainingProjects() {
   return (
@@ -39,7 +39,7 @@ export default function SkillTrainingProjects() {
             According to recent data, just 10% of recent graduates are employable, and the other 90% do not possess the necessary abilities to qualify for employment by a firm. The GDP of India is increasing at a healthy rate of about 6-8%, but employment growth is not keeping up.
           </p>
           <a
-            href="#donate"
+            href="donate"
             className="inline-block bg-[#9ac531] text-[#0757a0] font-bold text-lg px-8 py-3 rounded-full shadow-md hover:bg-[#86b22b] transition duration-200"
           >
             Support Skill Training

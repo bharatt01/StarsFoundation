@@ -149,13 +149,13 @@ export default function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
-                href="#join"
+                href="contact"
                 className="bg-[#9ac531] text-[#0757a0] px-6 sm:px-8 py-3 rounded font-bold shadow-lg hover:bg-[#86b22b] transition-colors text-center"
               >
                 Join Us
               </a>
               <a
-                href="#donate"
+                href="donate"
                 className="bg-[#0757a0] text-white px-6 sm:px-8 py-3 rounded font-bold shadow-lg hover:bg-[#054b83] transition-colors text-center"
               >
                 Donate Now

@@ -5,19 +5,19 @@ const events = [
     title: "Annual Fundraiser Gala",
     date: "November 25, 2025",
     location: "New Delhi",
-    imageSrc: "/images/events/fundraiser.jpg",
+    imageSrc: "/images/fund-raiser.jpeg",
   },
   {
     title: "Community Health Camp",
     date: "December 10, 2025",
     location: "Rural Uttar Pradesh",
-    imageSrc: "/images/events/health-camp.jpg",
+    imageSrc: "/images/community-help.jpeg",
   },
   {
     title: "Skill Development Workshop",
     date: "January 15, 2026",
     location: "Online",
-    imageSrc: "/images/events/workshop.jpg",
+    imageSrc: "/images/skill-training-workshop.jpeg",
   },
 ];
 

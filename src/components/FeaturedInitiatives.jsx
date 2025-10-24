@@ -56,12 +56,12 @@ export default function FeaturedInitiatives() {
             <div className="p-6 flex flex-col flex-grow">
               <h4 className="text-2xl font-bold mb-3 text-[#9ac531]">{title}</h4>
               <p className="text-gray-700 font-medium flex-grow">{description}</p>
-              <button
+              {/* <button
                 className="mt-6 bg-[#9ac531] text-[#0757a0] font-semibold py-3 rounded-lg shadow-md hover:bg-[#86b22b] transition-colors"
                 aria-label={`Learn more about ${title}`}
               >
                 Learn More
-              </button>
+              </button> */}
             </div>
           </motion.div>
         ))}

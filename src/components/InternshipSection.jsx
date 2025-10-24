@@ -68,7 +68,7 @@ export default function InternshipSection() {
       </ul>
 
       <motion.a
-        href="/internship-application"
+        href="/internship/application"
         className="inline-block bg-[#0757a0] text-white font-bold rounded-full px-16 py-5 shadow-lg hover:bg-[#05467f] transition transform hover:scale-105"
         whileHover={{ scale: 1.07 }}
         whileTap={{ scale: 0.95 }}

@@ -25,7 +25,7 @@ export default function VolunteerCTA() {
             Join our community of heroes dedicated to empowering underserved neighborhoods with compassion and real impact.
           </p>
           <a
-            href="#join"
+            href="join/volunteer"
             className="inline-block bg-white text-[#6ea816] font-bold px-14 py-4 rounded-full uppercase tracking-wider shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300"
           >
             Join Now

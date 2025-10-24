@@ -56,7 +56,7 @@ export default function VolunteerSection() {
       </ul>
       
       <motion.a
-        href="/volunteer-application"
+        href="/volunteer/application"
         className="block max-w-max mx-auto bg-gradient-to-r from-[#9ac531] to-[#75a732] text-white font-bold rounded-full px-16 py-5 shadow-lg hover:from-[#86b22b] hover:to-[#64932f] transition-all transform hover:scale-105"
         whileHover={{ scale: 1.07 }}
         whileTap={{ scale: 0.95 }}

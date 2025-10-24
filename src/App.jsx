@@ -12,6 +12,9 @@ import DonatePage from "./pages/DonatePage";
 import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 import Stories from "./pages/Stories";
 import Media from "./pages/Media";
+import ContactUs from "./pages/Contact";
+import VolunteerFormPage from "./pages/VolunteerForm";
+import InternshipFormPage from "./pages/InternshipFormPage";
 function App() {
   return (
     <Router>
@@ -28,6 +31,9 @@ function App() {
             <Route path="/donate" element={<DonatePage />} />
             <Route path="/media" element={<Media />} />
             <Route path="/stories" element={<Stories />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/internship/application" element={<InternshipFormPage />} />
+            <Route path="/volunteer/application" element={<VolunteerFormPage />} />
           </Routes>
       </>
     </Router>
